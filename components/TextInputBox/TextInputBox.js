@@ -16,6 +16,8 @@ export default function TextInputBox({ placeholder, value, onChangeText, secureT
         keyboardType={keyboardType}
         placeholderTextColor="#666"
         autoCapitalize="none"
+        blurOnSubmit={false}      // 🔹 evita que o teclado feche ao digitar
+        returnKeyType="done"      // 🔹 tecla “Done” no teclado
       />
       {secureTextEntry && (
         <TouchableOpacity 
