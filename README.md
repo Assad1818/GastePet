@@ -1,4 +1,4 @@
-# 🐾 GastePet --- Cálculo de Gastos Mensais com Pets
+# GastePet --- Cálculo de Gastos Mensais com Pets
 
 O GastePet é um aplicativo desenvolvido em React Native com Expo
 que permite ao usuário cadastrar pets, preencher informações detalhadas
@@ -16,7 +16,7 @@ tutores entendam o custo real de manter um animal de estimação.
 -   Armazenamento local usando AsyncStorage.
 -   Navegação entre telas usando React Navigation.
 
-## 📂 Estrutura de Pastas (Project Tree)
+## 📂 Estrutura de Pastas
 
     GastePet-main
     │
@@ -51,7 +51,7 @@ tutores entendam o custo real de manter um animal de estimação.
 -   React Navigation\
 -   AsyncStorage\
 -   react-native-picker\
--   expo-sqlite (não utilizado)
+-   expo-sqlite
 
 ## ▶️ Como Rodar o Projeto
 
