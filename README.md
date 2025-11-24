@@ -51,7 +51,6 @@ tutores entendam o custo real de manter um animal de estimação.
 -   React Navigation\
 -   AsyncStorage\
 -   react-native-picker\
--   expo-sqlite
 
 ## ▶️ Como Rodar o Projeto
 
