@@ -23,7 +23,7 @@ const Page3 = forwardRef(({ especie }, ref) => {
   };
 
   useImperativeHandle(ref, () => ({
-    getData: async () => {s
+    getData: async () => {
       if (!vetFreq) throw new Error('Informe a frequência ao veterinário.');
       return {
         vetFreq,
