@@ -40,7 +40,7 @@ export default function HomeScreen() {
     if (senha !== confirmaSenha)
       return Alert.alert('Erro','Senha e confirmação diferentes.');
 
-    const dataCadastro = new Date().toISOString(); // armazena data atual
+    const dataCadastro = new Date().toISOString();
 
     try {
       await createUser(email, usuario, senha, nomeCompleto, dataCadastro);
