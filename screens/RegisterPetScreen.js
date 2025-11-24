@@ -16,12 +16,10 @@ export default function RegisterPetScreen({ navigation }) {
   const [resultado, setResultado] = useState(null);
   const [saving, setSaving] = useState(false);
 
-  // refs para acessar métodos expostos pelas pages
   const page2Ref = useRef(null);
   const page3Ref = useRef(null);
   const page4Ref = useRef(null);
 
-  // **Estados levantados para manter valores ao navegar**
   const [page2State, setPage2State] = useState({
     nome: '',
     raca: '',
@@ -148,7 +146,6 @@ export default function RegisterPetScreen({ navigation }) {
       await addPet(payload);
       setSaving(false);
       Alert.alert('Sucesso', 'Pet salvo com sucesso!');
-      // reset
       setStep(1);
       setEspecie('Cachorro');
       setResultado(null);
@@ -193,7 +190,6 @@ export default function RegisterPetScreen({ navigation }) {
         <Text style={styles.header}>Cadastro de Pet — Etapa {step <= 4 ? step : 'Resumo'}</Text>
 
         <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 24 }}>
-          {/* Todas as páginas são renderizadas, apenas escondidas quando não estão ativas */}
           <View style={{ display: step === 1 ? 'flex' : 'none' }}>
             <Page1 especie={especie} setEspecie={setEspecie} />
           </View>

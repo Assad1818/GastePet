@@ -14,13 +14,13 @@ const alimentacaoOptions = [
   'Ração premium',
   'Ração super premium',
   'Ração medicamentosa',
-  'Alimentação natural (AN)',
+  'Alimentação natural',
   'Mistura de ração + alimentação natural',
   'Sementes'
 ];
 
 const Page2 = forwardRef(({ especie }, ref) => {
-  // estados LOCAIS: alterações aqui re-renderizam somente este componente
+
   const [nome, setNome] = useState('');
   const [raca, setRaca] = useState('');
   const [idade, setIdade] = useState('');
@@ -85,7 +85,7 @@ const Page2 = forwardRef(({ especie }, ref) => {
           </TouchableOpacity>
         ))
       ) : especie === 'Gato' ? (
-        <Text style={styles.small}>Gatos: porte único (opcional perguntar peso)</Text>
+        <Text style={styles.small}>Gatos: porte único</Text>
       ) : (
         ['Pequeno','Médio','Grande'].map(p => (
           <TouchableOpacity key={p} style={[styles.option, porte === p && styles.optionActive]} onPress={() => setPorte(p)}>

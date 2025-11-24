@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 
-// Telas
 import HomeScreen from './screens/HomeScreen';
 import RegisterPetScreen from './screens/RegisterPetScreen';
 import PetsScreen from './screens/PetsScreen';
@@ -85,7 +84,6 @@ export default function App() {
         </Tab.Navigator>
       </NavigationContainer>
 
-      {/* Modal do menu de usuário */}
       <Modal
         transparent
         visible={userMenuVisible}
@@ -96,25 +94,21 @@ export default function App() {
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Menu do Usuário</Text>
 
-            {/* Informações do usuário */}
             <TouchableOpacity style={styles.modalButton} onPress={handleInfoUsuario}>
               <MaterialIcons name="settings" size={18} color="#075985" style={{ marginRight: 8 }} />
               <Text style={styles.modalText}>Informações do usuário</Text>
             </TouchableOpacity>
 
-            {/* Alterar conta */}
             <TouchableOpacity style={styles.modalButton} onPress={handleAlterarContaModal}>
               <MaterialIcons name="account-circle" size={18} color="#075985" style={{ marginRight: 8 }} />
               <Text style={styles.modalText}>Alterar conta</Text>
             </TouchableOpacity>
 
-            {/* Sair */}
             <TouchableOpacity style={styles.modalButton} onPress={handleLogout}>
               <MaterialIcons name="exit-to-app" size={18} color="red" style={{ marginRight: 8 }} />
               <Text style={[styles.modalText, { color: 'red' }]}>Sair</Text>
             </TouchableOpacity>
 
-            {/* Cancelar */}
             <TouchableOpacity style={[styles.modalButton, { marginTop: 8 }]} onPress={() => setUserMenuVisible(false)}>
               <Text style={styles.modalText}>Cancelar</Text>
             </TouchableOpacity>
@@ -122,7 +116,6 @@ export default function App() {
         </View>
       </Modal>
 
-      {/* Modal de alterar conta */}
       <Modal
         transparent
         visible={alterarContaVisible}
@@ -140,7 +133,6 @@ export default function App() {
               </TouchableOpacity>
             ))}
 
-            {/* Cancelar */}
             <TouchableOpacity style={[styles.modalButton, { marginTop: 8 }]} onPress={() => setAlterarContaVisible(false)}>
               <Text style={styles.modalText}>Cancelar</Text>
             </TouchableOpacity>
@@ -148,7 +140,6 @@ export default function App() {
         </View>
       </Modal>
 
-      {/* Modal de informações detalhadas do usuário */}
       <Modal
         transparent
         visible={infoVisible}

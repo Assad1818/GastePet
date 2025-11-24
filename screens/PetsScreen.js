@@ -94,7 +94,6 @@ export default function PetsScreen() {
                     <Text style={styles.name}>{item.nome}</Text>
                     <Text style={styles.meta}>{item.raca} • {item.porte}</Text>
 
-                    {/* EXIBIR SOMENTE CAMPOS > 0 */}
                     {g ? (
                       <>
                         {g.racao > 0 && (

@@ -7,7 +7,7 @@ export default function CustomButton({ title, onPress, style, icon }) {
     <TouchableOpacity
       style={[styles.button, style]}
       onPress={onPress}
-      activeOpacity={0.7} // efeito visual ao clicar
+      activeOpacity={0.7} 
     >
       {icon && (
         <MaterialIcons
@@ -24,7 +24,7 @@ export default function CustomButton({ title, onPress, style, icon }) {
 
 const styles = StyleSheet.create({
   button: {
-    flexDirection: 'row', // ícone e texto na mesma linha
+    flexDirection: 'row', 
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#075985',

@@ -1,10 +1,8 @@
-// repository/db.js
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const KEY_USERS = 'usuarios';
 const KEY_PETS = 'pets';
 
-// ---------- USERS (preservo breve compatibilidade) ----------
 export const createUser = async (email, usuario, senha, nomeCompleto = '', createdAt = null) => {
   const data = await AsyncStorage.getItem(KEY_USERS);
   const usuarios = data ? JSON.parse(data) : [];
@@ -28,11 +26,7 @@ export const getAllUsers = async () => {
   const data = await AsyncStorage.getItem(KEY_USERS);
   return data ? JSON.parse(data) : [];
 };
-
-// ---------- PETS ----------
 export const addPet = async (petObj) => {
-  // petObj deve conter: usuario, especie, nome, raca, idade (anos float), porte, alimentacao (tipo + gastoMensal opcional),
-  // vet, vacinas, tosa, medicamentos, higiene, accessories, servicos, createdAt, gastos (resultado api)
   const data = await AsyncStorage.getItem(KEY_PETS);
   const pets = data ? JSON.parse(data) : [];
   const newPet = {
@@ -62,10 +56,4 @@ export const deletePet = async (id, usuario) => {
 export const getAllPets = async () => {
   const data = await AsyncStorage.getItem(KEY_PETS);
   return data ? JSON.parse(data) : [];
-};
-
-// ---------- UTILITÁRIOS ----------
-export const clearDatabase = async () => {
-  await AsyncStorage.removeItem(KEY_USERS);
-  await AsyncStorage.removeItem(KEY_PETS);
 };

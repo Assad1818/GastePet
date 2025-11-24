@@ -17,7 +17,6 @@ const Page4 = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     getData: async () => {
-      // não há validações obrigatórias aqui — retornamos arrays
       return { acessorios, servicos };
     }
   }));
@@ -56,7 +55,7 @@ const Page4 = forwardRef((props, ref) => {
       <Text style={[styles.label, { marginTop: 12 }]}>Serviços extras</Text>
       <Text style={styles.small}>Daycare, pet sitter, adestramento, banho semanal, passeador, hotel</Text>
       <View style={{ marginTop: 8 }}>
-        <TextInputBox placeholder="Nome do serviço (ex: Daycare)" value={srvNome} onChangeText={setSrvNome} />
+        <TextInputBox placeholder="Nome do serviço" value={srvNome} onChangeText={setSrvNome} />
         <Text style={styles.small}>Frequência</Text>
         <View style={{ flexDirection:'row' }}>
           {['dia','semana','mensal'].map(t => (

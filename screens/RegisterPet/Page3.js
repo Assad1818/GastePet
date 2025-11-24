@@ -23,8 +23,7 @@ const Page3 = forwardRef(({ especie }, ref) => {
   };
 
   useImperativeHandle(ref, () => ({
-    getData: async () => {
-      // validações simples
+    getData: async () => {s
       if (!vetFreq) throw new Error('Informe a frequência ao veterinário.');
       return {
         vetFreq,
@@ -66,7 +65,7 @@ const Page3 = forwardRef(({ especie }, ref) => {
 
       {(vacinasStatus === 'Sim' || vacinasStatus === 'Parcialmente') && (
         <>
-          <Text style={styles.label}>Quais vacinas recebeu no último ano? (marque)</Text>
+          <Text style={styles.label}>Quais vacinas recebeu no último ano?</Text>
           {especie === 'Cachorro' && ['V8/V10','Antirrábica','Gripe Canina','Giardia'].map(item => (
             <TouchableOpacity key={item} style={[styles.option, vacinasLista.includes(item) && styles.optionActive]} onPress={()=>toggleChecklist(vacinasLista, setVacinasLista, item)}>
               <Text style={styles.optionText}>{item}</Text>
@@ -138,7 +137,7 @@ const Page3 = forwardRef(({ especie }, ref) => {
             </TouchableOpacity>
           ))}
           <Text style={styles.label}>Quanto gasta em média por mês ou por ciclo? (R$)</Text>
-          <TextInputBox placeholder="R$ mês" value={medicamentosCusto} onChangeText={setMedicamentosCusto} keyboardType="numeric" />
+          <TextInputBox placeholder="R$" value={medicamentosCusto} onChangeText={setMedicamentosCusto} keyboardType="numeric" />
         </>
       )}
     </View>

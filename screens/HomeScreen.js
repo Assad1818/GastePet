@@ -8,19 +8,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen() {
   const { user, setUser } = useContext(AuthContext);
-
   const [isRegistering, setIsRegistering] = useState(false);
-
-  // Campos de login
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
-
-  // Campos de cadastro
   const [nomeCompleto, setNomeCompleto] = useState('');
   const [email, setEmail] = useState('');
   const [confirmaSenha, setConfirmaSenha] = useState('');
-
-  // --- LOGIN ---
   const handleLogin = async () => {
     if (!usuario || !senha) return Alert.alert('Erro','Preencha usuário e senha.');
 
@@ -41,7 +34,6 @@ export default function HomeScreen() {
     }
   };
 
-  // --- CADASTRO ---
   const handleRegister = async () => {
     if (!nomeCompleto || !email || !usuario || !senha || !confirmaSenha)
       return Alert.alert('Erro','Preencha todos os campos.');
@@ -61,33 +53,12 @@ export default function HomeScreen() {
     }
   };
 
-  // --- LOGOUT ---
   const handleLogout = async () => {
     setUser(null);
     await AsyncStorage.removeItem('loggedUser');
   };
 
-  // --- RESET DB ---
-  const handleResetDB = async () => {
-    Alert.alert(
-      'Confirmação',
-      'Deseja realmente limpar todos os usuários e pets?',
-      [
-        { text: 'Cancelar', style: 'cancel' },
-        {
-          text: 'Limpar',
-          style: 'destructive',
-          onPress: async () => {
-            await clearDatabase();
-            Alert.alert('Sucesso', 'Banco de dados limpo!');
-            setUser(null);
-          }
-        }
-      ]
-    );
-  };
 
-  // --- RENDER ---
   if (!user) {
     return (
       <ScrollView contentContainerStyle={styles.container}>
@@ -115,16 +86,10 @@ export default function HomeScreen() {
             </TouchableOpacity>
           </View>
         )}
-        <CustomButton 
-          title="🔄 Reset DB" 
-          onPress={handleResetDB} 
-          style={{ marginTop: 20, backgroundColor: '#FF6347' }} 
-        />
       </ScrollView>
     );
   }
 
-  // --- USUÁRIO LOGADO ---
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Bem-vindo ao GastePet, {user.usuario}!</Text>

@@ -11,13 +11,13 @@ export default function TextInputBox({ placeholder, value, onChangeText, secureT
         style={styles.input}
         placeholder={placeholder}
         value={value}
-        onChangeText={onChangeText} // o valor sempre vem do pai
-        secureTextEntry={secureTextEntry && !showPassword} // olho controla apenas exibição
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry && !showPassword}
         keyboardType={keyboardType}
         placeholderTextColor="#666"
         autoCapitalize="none"
-        blurOnSubmit={false}      // 🔹 evita que o teclado feche ao digitar
-        returnKeyType="done"      // 🔹 tecla “Done” no teclado
+        blurOnSubmit={false}   
+        returnKeyType="done"     
       />
       {secureTextEntry && (
         <TouchableOpacity 
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#fff',
     marginVertical: 6,
-    paddingRight: 10, // espaço para o ícone
+    paddingRight: 10,
   },
   input: {
     flex: 1,
