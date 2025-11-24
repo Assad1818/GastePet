@@ -1,10 +1,10 @@
 import 'react-native-gesture-handler';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Alert, TouchableOpacity, Modal, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from './screens/HomeScreen';
 import RegisterPetScreen from './screens/RegisterPetScreen';
 import PetsScreen from './screens/PetsScreen';
@@ -14,12 +14,29 @@ import { getAllUsers, getPets } from './repository/db';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
   const [alterarContaVisible, setAlterarContaVisible] = useState(false);
   const [infoVisible, setInfoVisible] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
   const [quantidadePets, setQuantidadePets] = useState(0);
+
+  useEffect(() => {
+    async function loadUser() {
+      try {
+        const saved = await AsyncStorage.getItem('loggedUser');
+        if (saved) {
+          setUser(JSON.parse(saved));
+        }
+      } catch (e) {
+        console.log("Erro ao carregar usuário:", e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadUser();
+  }, []);
 
   const openUserMenu = async () => {
     if (user) {
@@ -52,7 +69,9 @@ export default function App() {
     setAlterarContaVisible(false);
     Alert.alert('Sucesso', 'Você saiu da conta.');
   };
-
+  if (loading) {
+  return null; 
+  }
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
