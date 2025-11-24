@@ -17,7 +17,6 @@ export default function PetsScreen() {
     try {
       const list = user ? await getPets(user.usuario) : [];
       setPets(list);
-
       const novosGastos = {};
       let total = 0;
 
